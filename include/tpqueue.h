@@ -6,6 +6,7 @@
 
 template<typename T>
 class TPQueue {
+ private:
     struct QueueItem {
         T data;
         QueueItem* next;
@@ -44,23 +45,19 @@ void TPQueue<T>::push(const T& d) {
     if (head == nullptr) {
         head = createQueueItem(d);
         tail = head;
-    }
-    else if (tail->data.prior >= d.prior) {
+    } else if (tail->data.prior >= d.prior) {
         if (tail->data.ch == d.ch) {
             tail->data = d;
-        }
-        else {
+        } else {
             tail->next = createQueueItem(d);
             tail->next->prev = tail;
             tail = tail->next;
         }
-    }
-    else if (head == tail) {
+    } else if (head == tail) {
         tail->prev = createQueueItem(d);
         head = tail->prev;
         head->next = tail;
-    }
-    else {
+    } else {
         QueueItem* tmp = tail;
         while (tmp != head && tmp->data.prior < d.prior) {
             tmp = tmp->prev;
