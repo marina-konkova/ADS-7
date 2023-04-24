@@ -15,7 +15,7 @@ class TPQueue {
     QueueItem* tail;
     TPQueue::QueueItem* createQueueItem(const T&);
 
-public:
+ public:
     TPQueue() : head(nullptr), tail(nullptr) {}
     ~TPQueue();
     void push(const T&);
