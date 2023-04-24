@@ -82,8 +82,7 @@ template <typename T>
 T TPQueue<T>::pop() {
     if (!head) {
         throw std::string("Queue is empty!");
-    }
-    else {
+    } else {
         QueueItem* temp = head->next;
         T data = head->data;
         delete head;
